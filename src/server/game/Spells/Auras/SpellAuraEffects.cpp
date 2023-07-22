@@ -2155,6 +2155,8 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
             {
                 switch (GetId())
                 {
+		    case 250515:
+		    case 250514:
                     // Orb of Deception
                     case 16739:
                         {
