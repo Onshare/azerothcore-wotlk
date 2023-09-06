@@ -609,6 +609,12 @@ public:
 
         void HandleTrigger()
         {
+            Unit* target = GetHitUnit();
+            if(_triggerId == 69675 || _triggerId == 70126) {
+                if(target->IsNPCBotOrPet()){
+                    return;
+                }
+            }
             GetCaster()->CastSpell(GetHitUnit(), _triggerId, true);
         }
 
