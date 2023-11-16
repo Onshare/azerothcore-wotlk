@@ -847,7 +847,7 @@ void WorldSession::HandleSummonResponseOpcode(WorldPacket& recvData)
         if (Player* summoner = ObjectAccessor::FindPlayer(summoner_guid))
             ArenaSpectator::HandleSpectatorSpectateCommand(&chc, summoner->GetName().c_str());
         else
-            chc.PSendSysMessage("Requested player not found.");
+            chc.PSendSysMessage("目标玩家未找到.");
 
         agree = false;
     }

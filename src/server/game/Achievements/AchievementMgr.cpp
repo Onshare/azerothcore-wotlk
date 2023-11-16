@@ -2195,8 +2195,8 @@ void AchievementMgr::CompletedAchievement(AchievementEntry const* achievement)
     // disable for gamemasters with GM-mode enabled
     if (_player->IsGameMaster())
     {
-        LOG_INFO("achievement", "Not available in GM mode.");
-        ChatHandler(_player->GetSession()).PSendSysMessage("Not available in GM mode");
+        LOG_INFO("achievement", "GM模式下不可用.");
+        ChatHandler(_player->GetSession()).PSendSysMessage("GM模式下不可用");
         return;
     }
 

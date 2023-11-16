@@ -6140,7 +6140,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool awar
             int32 count = sWorld->getIntConfig(CONFIG_PVP_TOKEN_COUNT);
 
             if (AddItem(itemID, count))
-                ChatHandler(GetSession()).PSendSysMessage("You have been awarded a token for slaying another player.");
+                ChatHandler(GetSession()).PSendSysMessage("您杀死了一名敌方阵营的玩家，获得一枚代币.");
         }
     }
 
