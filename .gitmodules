@@ -1,3 +1,21 @@
 [submodule "modules/mod-zone-difficulty"]
 	path = modules/mod-zone-difficulty
 	url = git@github.com:Onshare/mod-zone-difficulty.git
+[submodule "modules/mod-congrats-on-level"]
+	path = modules/mod-congrats-on-level
+	url = git@github.com:Onshare/mod-congrats-on-level.git
+[submodule "modules/mod-reward-played-time"]
+	path = modules/mod-reward-played-time
+	url = git@github.com:Onshare/mod-reward-played-time.git
+[submodule "modules/mod-reward-shop"]
+	path = modules/mod-reward-shop
+	url = git@github.com:Onshare/mod-reward-shop.git
+[submodule "modules/mod-bg-reward"]
+	path = modules/mod-bg-reward
+	url = git@github.com:Onshare/mod-bg-reward.git
+[submodule "modules/mod-anticheat"]
+	path = modules/mod-anticheat
+	url = git@github.com:Onshare/mod-anticheat.git
+[submodule "modules/mod-eluna"]
+	path = modules/mod-eluna
+	url = git@github.com:Onshare/mod-eluna.git
