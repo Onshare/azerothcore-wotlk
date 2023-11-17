@@ -1,0 +1,3 @@
+[submodule "modules/mod-zone-difficulty"]
+	path = modules/mod-zone-difficulty
+	url = git@github.com:Onshare/mod-zone-difficulty.git
