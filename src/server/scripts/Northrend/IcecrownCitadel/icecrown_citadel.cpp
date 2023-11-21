@@ -1257,7 +1257,7 @@ public:
     {
         if (spell->Id == SPELL_REVIVE_CHAMPION && !IsUndead)
         {
-            me->setDeathState(JUST_RESPAWNED);
+            me->setDeathState(DeathState::JustRespawned);
             uint32 newEntry = 0;
             switch (me->GetEntry())
             {
@@ -3300,7 +3300,7 @@ public:
             if (!player->GetGroup() || !player->GetGroup()->isRaidGroup() || !player->GetGroup()->IsLeader(player->GetGUID()))
             {
                 CloseGossipMenuFor(player);
-                ChatHandler(player->GetSession()).PSendSysMessage("Only the raid leader can turn off the buff.");
+                ChatHandler(player->GetSession()).PSendSysMessage("只有团队领袖才能取消该Buff.");
                 return true;
             }
             if (InstanceScript* inst = creature->GetInstanceScript())

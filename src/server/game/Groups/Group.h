@@ -19,6 +19,7 @@
 #define AZEROTHCORE_GROUP_H
 
 #include "DBCEnums.h"
+#include "DataMap.h"
 #include "GroupRefMgr.h"
 #include "LootMgr.h"
 #include "QueryResult.h"
@@ -327,6 +328,8 @@ public:
     DifficultyPreventionChangeType GetDifficultyChangePreventionReason() const { return _difficultyChangePreventionType; }
     void SetDifficultyChangePrevention(DifficultyPreventionChangeType type);
     void DoForAllMembers(std::function<void(Player*)> const& worker);
+
+     DataMap CustomData;
 
     //npcbots
     ObjectGuid const* GetTargetIcons() const { return m_targetIcons; }

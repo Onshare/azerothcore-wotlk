@@ -499,7 +499,7 @@ public:
                 }
                 else
                 {
-                    handler->PSendSysMessage("No IP2Location information - account not locked");
+                    handler->PSendSysMessage("没有IP地址信息 - 账户未被锁定");
                     handler->SetSentErrorMessage(true);
                     return false;
                 }

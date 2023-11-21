@@ -75,7 +75,9 @@
 #include "SpellAuraEffects.h"
 #include "SpellAuras.h"
 #include "SpellMgr.h"
+#include "StringConvert.h"
 #include "TicketMgr.h"
+#include "Tokenize.h"
 #include "Transport.h"
 #include "UpdateData.h"
 #include "UpdateFieldFlags.h"
@@ -85,8 +87,6 @@
 #include "World.h"
 #include "WorldPacket.h"
 #include "WorldSession.h"
-#include "Tokenize.h"
-#include "StringConvert.h"
 
 /// @todo: this import is not necessary for compilation and marked as unused by the IDE
 //  however, for some reasons removing it would cause a damn linking issue
@@ -1023,7 +1023,7 @@ void Player::setDeathState(DeathState s, bool /*despawn = false*/)
 
     bool cur = IsAlive();
 
-    if (s == JUST_DIED)
+    if (s == DeathState::JustDied)
     {
         if (!cur)
         {
@@ -1038,7 +1038,7 @@ void Player::setDeathState(DeathState s, bool /*despawn = false*/)
 
         clearResurrectRequestData();
 
-        //FIXME: is pet dismissed at dying or releasing spirit? if second, add setDeathState(DEAD) to HandleRepopRequestOpcode and define pet unsummon here with (s == DEAD)
+        //FIXME: is pet dismissed at dying or releasing spirit? if second, add setDeathState(DeathState::Dead) to HandleRepopRequestOpcode and define pet unsummon here with (s == DEAD)
         RemovePet(nullptr, PET_SAVE_NOT_IN_SLOT, true);
 
         // save value before aura remove in Unit::setDeathState
@@ -1058,7 +1058,7 @@ void Player::setDeathState(DeathState s, bool /*despawn = false*/)
         ResetAchievementCriteria(ACHIEVEMENT_CRITERIA_CONDITION_NO_DEATH, 0);
     }
     // xinef: enable passive area auras!
-    else if (s == ALIVE)
+    else if (s == DeathState::Alive)
         ClearUnitState(UNIT_STATE_ISOLATED);
 
     Unit::setDeathState(s);
@@ -1067,7 +1067,7 @@ void Player::setDeathState(DeathState s, bool /*despawn = false*/)
         ArenaSpectator::SendCommand_UInt32Value(FindMap(), GetGUID(), "STA", IsAlive() ? 1 : 0);
 
     // restore resurrection spell id for player after aura remove
-    if (s == JUST_DIED && cur && ressSpellId)
+    if (s == DeathState::JustDied && cur && ressSpellId)
         SetUInt32Value(PLAYER_SELF_RES_SPELL, ressSpellId);
 
     if (IsAlive() && !cur)
@@ -4503,7 +4503,7 @@ void Player::ResurrectPlayer(float restore_percent, bool applySickness)
     if (GetSession()->IsARecruiter() || (GetSession()->GetRecruiterId() != 0))
         SetDynamicFlag(UNIT_DYNFLAG_REFER_A_FRIEND);
 
-    setDeathState(ALIVE);
+    setDeathState(DeathState::Alive);
     SetMovement(MOVE_LAND_WALK);
     SetMovement(MOVE_UNROOT);
     SetWaterWalking(false);
@@ -4570,7 +4570,7 @@ void Player::KillPlayer()
 
     StopMirrorTimers();                                     //disable timers(bars)
 
-    setDeathState(CORPSE);
+    setDeathState(DeathState::Corpse);
     //SetUnitFlag(UNIT_FLAG_NOT_IN_PVP);
 
     ReplaceAllDynamicFlags(UNIT_DYNFLAG_NONE);
@@ -6288,7 +6288,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool awar
             int32 count = sWorld->getIntConfig(CONFIG_PVP_TOKEN_COUNT);
 
             if (AddItem(itemID, count))
-                ChatHandler(GetSession()).PSendSysMessage("You have been awarded a token for slaying another player.");
+                ChatHandler(GetSession()).PSendSysMessage("您杀死了一名敌方阵营的玩家，获得一枚代币.");
         }
     }
 
@@ -15352,6 +15352,8 @@ void Player::ActivateSpec(uint8 spec)
         else
             ++iter;
     }
+
+    sScriptMgr->OnAfterSpecSlotChanged(this, GetActiveSpec());
 }
 
 void Player::LoadActions(PreparedQueryResult result)

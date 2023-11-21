@@ -38,80 +38,80 @@ bool ArenaSpectator::HandleSpectatorSpectateCommand(ChatHandler* handler, std::s
             HandleSpectatorWatchCommand(handler, name);
             return true;
         }
-        handler->PSendSysMessage("You are already spectacting arena.");
+        handler->PSendSysMessage("您已经正在观察竞技场比赛了.");
         return true;
     }
 
     if (player->getClass() == CLASS_DEATH_KNIGHT && player->GetMapId() == 609)
     {
-        handler->PSendSysMessage("Death Knights can't spectate before finishing questline.");
+        handler->PSendSysMessage("死亡骑士在完成主线任务之前不能观察竞技场比赛.");
         return true;
     }
 
     Player* spectate = ObjectAccessor::FindPlayerByName(name);
     if (!spectate)
     {
-        handler->SendSysMessage("Requested player not found.");
+        handler->SendSysMessage("目标玩家未找到.");
         return true;
     }
 
     if (spectate->IsSpectator())
     {
-        handler->SendSysMessage("Requested player is a spectator.");
+        handler->SendSysMessage("目标玩家正在观察竞技场中.");
         return true;
     }
 
     if (!spectate->FindMap() || !spectate->FindMap()->IsBattleArena())
     {
-        handler->SendSysMessage("Requested player is not in arena.");
+        handler->SendSysMessage("目标玩家不在竞技场中.");
         return true;
     }
 
     BattlegroundMap* bgmap = ((BattlegroundMap*)spectate->FindMap());
     if (!bgmap->GetBG() || bgmap->GetBG()->GetStatus() == STATUS_WAIT_LEAVE)
     {
-        handler->SendSysMessage("This arena battle has finished.");
+        handler->SendSysMessage("本场竞技场比赛已结束.");
         return true;
     }
 
     if (player->IsBeingTeleported() || !player->IsInWorld())
-        errors.push_back("Can't use while being teleported.");
+        errors.push_back("传送时无法使用.");
 
     if (!player->FindMap() || player->FindMap()->Instanceable())
-        errors.push_back("Can't use while in instance, bg or arena.");
+        errors.push_back("地下城、战场或竞技场中无法使用.");
 
     if (player->GetVehicle())
-        errors.push_back("Can't be on a vehicle.");
+        errors.push_back("载具中无法使用.");
 
     if (player->IsInCombat())
-        errors.push_back("Can't be in combat.");
+        errors.push_back("战斗中无法使用.");
 
     if (player->isUsingLfg())
-        errors.push_back("Can't spectate while using LFG system.");
+        errors.push_back("使用地下城查找器中无法使用.");
 
     if (player->InBattlegroundQueue())
-        errors.push_back("Can't be queued for arena or bg.");
+        errors.push_back("战场或竞技场排队中无法使用.");
 
     if (player->GetGroup())
-        errors.push_back("Can't be in a group.");
+        errors.push_back("组队模式下无法使用.");
 
     if (player->HasUnitState(UNIT_STATE_ISOLATED))
         errors.push_back("Can't be isolated.");
 
     if (player->m_mover != player)
-        errors.push_back("You must control yourself.");
+        errors.push_back("您现在无法控制您的角色.");
 
     if (player->IsInFlight())
-        errors.push_back("Can't be in flight.");
+        errors.push_back("飞行中无法使用.");
 
     if (player->IsMounted())
-        errors.push_back("Dismount before spectating.");
+        errors.push_back("观看前请离开载具.");
 
     if (!player->IsAlive())
-        errors.push_back("Must be alive.");
+        errors.push_back("您死了.");
 
     if (!player->m_Controlled.empty())
-        errors.push_back("Can't be controlling creatures.");
+        errors.push_back("您正在被控制中.");
 
     const Unit::VisibleAuraMap* va = player->GetVisibleAuras();
     for (auto itr = va->begin(); itr != va->end(); ++itr)
@@ -147,14 +147,14 @@ bool ArenaSpectator::HandleSpectatorSpectateCommand(ChatHandler* handler, std::s
             (handler->GetSession()->GetSecurity() && bgmap->GetBG()->GetStatus() != STATUS_WAIT_JOIN && bgmap->GetBG()->GetStatus() != STATUS_IN_PROGRESS))
     {
         bgPreparation = true;
-        handler->SendSysMessage("Arena is not in progress yet. You will be invited as soon as it starts.");
+        handler->SendSysMessage("竞技场比赛未开始. 开始后您将收到通知.");
         bgmap->GetBG()->AddToBeTeleported(player->GetGUID(), spectate->GetGUID());
         player->SetPendingSpectatorInviteInstanceId(spectate->GetBattlegroundId());
     }
 
     if (!errors.empty())
     {
-        handler->PSendSysMessage("To spectate, please fix the following:");
+        handler->PSendSysMessage("无法观摩，请修复以下问题:");
         for (std::list<std::string>::const_iterator itr = errors.begin(); itr != errors.end(); ++itr)
             handler->PSendSysMessage("- %s", (*itr).c_str());
 

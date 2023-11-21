@@ -1022,43 +1022,43 @@ public:
                 switch (SkillID)
                 {
                     case SKILL_ALCHEMY:
-                        handler->PSendSysMessage("%u - Alchemy - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 炼金术 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_BLACKSMITHING:
-                        handler->PSendSysMessage("%u - Blacksmithing - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 锻造 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_ENCHANTING:
-                        handler->PSendSysMessage("%u - Enchanting - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 附魔 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_ENGINEERING:
-                        handler->PSendSysMessage("%u - Engineering - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 工程 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_INSCRIPTION:
-                        handler->PSendSysMessage("%u - Inscription - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 铭文 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_JEWELCRAFTING:
-                        handler->PSendSysMessage("%u - Jewelcrafting - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 珠宝加工 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_LEATHERWORKING:
-                        handler->PSendSysMessage("%u - Leatherworking - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 制皮 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_TAILORING:
-                        handler->PSendSysMessage("%u - Tailoring - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 裁缝 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_SKINNING:
-                        handler->PSendSysMessage("%u - Skinning - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 剥皮 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_HERBALISM:
-                        handler->PSendSysMessage("%u - Herbalism - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 草药学 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_MINING:
-                        handler->PSendSysMessage("%u - Mining - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 采矿 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_COOKING:
-                        handler->PSendSysMessage("%u - Cooking - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 烹饪 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     case SKILL_FIRST_AID:
-                        handler->PSendSysMessage("%u - First Aid - %u", Counter, player->GetSkillValue(SkillID));
+                        handler->PSendSysMessage("%u - 急救 - %u", Counter, player->GetSkillValue(SkillID));
                         break;
                     default:
                         break;
