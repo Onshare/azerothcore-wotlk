@@ -3996,7 +3996,7 @@ bool Creature::LoadBotCreatureFromDB(ObjectGuid::LowType spawnId, Map* map, bool
     //We should set first home position, because then AI calls home movement
     SetHomePosition(*this);
 
-    m_deathState = ALIVE;
+    m_deathState = DeathState::Alive;
     m_respawnTime = 0;
 
     uint32 curhealth;
