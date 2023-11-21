@@ -368,7 +368,7 @@ bool OPvPCapturePoint::Update(uint32 diff)
         }
     }
 
-    fact_diff += 0.5f * ((float)botsCount[0] - (float)botsCount[1]) * diff / OUTDOORPVP_OBJECTIVE_UPDATE_INTERVAL;
+    factDiff += 0.5f * ((float)botsCount[0] - (float)botsCount[1]) * diff / OUTDOORPVP_OBJECTIVE_UPDATE_INTERVAL;
     //end npcbot
 
     TeamId ChallengerId = TEAM_NEUTRAL;
