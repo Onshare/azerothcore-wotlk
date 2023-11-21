@@ -15,6 +15,7 @@
 #include "SpellAuras.h"
 #include "SpellMgr.h"
 #include "Vehicle.h"
+#include "Unit.h"
 /*
 Name: bot_GridNotifiers
 %Complete: 99+
