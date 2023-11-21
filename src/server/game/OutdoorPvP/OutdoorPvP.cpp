@@ -361,7 +361,7 @@ bool OPvPCapturePoint::Update(uint32 diff)
     {
         botsCount[team] = 0;
 
-        for (GuidSet::iterator itr = m_activePlayers[team].begin(); itr != m_activePlayers[team].end(); ++itr)
+        for (GuidSet::iterator itr = _activePlayers[team].begin(); itr != _activePlayers[team].end(); ++itr)
         {
             if (Player* player = ObjectAccessor::FindPlayer(*itr))
                 botsCount[team] += player->GetNpcBotsCount();
