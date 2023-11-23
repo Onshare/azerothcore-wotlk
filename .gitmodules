@@ -19,3 +19,6 @@
 [submodule "modules/mod-eluna"]
 	path = modules/mod-eluna
 	url = git@github.com:Onshare/mod-eluna.git
+[submodule "mod-transmog"]
+	path = mod-transmog
+	url = https://github.com/Onshare/mod-transmog
