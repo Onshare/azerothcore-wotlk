@@ -21,4 +21,4 @@
 	url = git@github.com:Onshare/mod-eluna.git
 [submodule "mod-transmog"]
 	path = modules/mod-transmog
-	url = https://github.com/Onshare/mod-transmog
+	url = git@github.com:Onshare/mod-transmog.git
