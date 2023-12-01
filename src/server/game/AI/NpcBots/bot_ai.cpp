@@ -13674,18 +13674,9 @@ void bot_ai::_castBotItemUseSpell(Item const* item, SpellCastTargets const& targ
             continue;
 
         Spell* spell = new Spell(me, spellInfo, (count > 0) ? TRIGGERED_FULL_MASK : TRIGGERED_NONE);
-<<<<<<< Updated upstream
-        if (item->GetEntry() == 69002) {
-            Item* pItem = const_cast<Item*>(item);
-            spell->m_CastItem = pItem; // DO NOT TAKE ITEM
-            spell->m_cast_count = 1;                   // set count of casts
-            spell->m_glyphIndex = 0;                   // glyph index
-        }
-=======
-        //spell->m_CastItem = item; // DO NOT TAKE ITEM
-        //spell->m_cast_count = cast_count;               // set count of casts
-        //spell->m_glyphIndex = glyphIndex;               // glyph index
->>>>>>> Stashed changes
+        //spell->m_CastItem = item;         // DO NOT TAKE ITEM
+        //spell->m_cast_count = cast_count; // set count of casts
+        //spell->m_glyphIndex = glyphIndex; // glyph index
         spell->prepare(&targets);
         ++count;
     }
