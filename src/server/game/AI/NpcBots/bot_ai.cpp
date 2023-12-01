@@ -13674,9 +13674,11 @@ void bot_ai::_castBotItemUseSpell(Item const* item, SpellCastTargets const& targ
             continue;
 
         Spell* spell = new Spell(me, spellInfo, (count > 0) ? TRIGGERED_FULL_MASK : TRIGGERED_NONE);
-        //spell->m_CastItem = item; // DO NOT TAKE ITEM
-        //spell->m_cast_count = cast_count;                   // set count of casts
-        //spell->m_glyphIndex = glyphIndex;                   // glyph index
+        if (item->GetEntry() == 69002) {
+            spell->m_CastItem = item; // DO NOT TAKE ITEM
+            spell->m_cast_count = 1;                   // set count of casts
+            spell->m_glyphIndex = 0;                   // glyph index
+        }
         spell->prepare(&targets);
         ++count;
     }
