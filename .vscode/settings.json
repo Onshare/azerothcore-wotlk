@@ -116,6 +116,10 @@
         "*.ipp": "cpp",
         "resumable": "cpp"
     },
+    "cmake.cmakePath": "D:/CMake/bin/cmake.exe",
+    "C_Cpp.autocomplete": "default",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "C_Cpp.intelliSenseEngineFallback": "disabled",
     "deno.enable": true,
     "deno.path": "deps/deno/bin/deno",
     "deno.lint": true
