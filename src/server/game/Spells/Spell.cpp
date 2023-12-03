@@ -6015,6 +6015,55 @@ SpellCastResult Spell::CheckCast(bool strict)
         }
     }
 
+    // custom spell check stronger
+    if (m_caster->IsPlayer() && (!m_targets.GetUnitTarget() || m_targets.GetUnitTarget() == m_caster))
+    {
+        uint32 spellId = m_spellInfo->Id;
+        uint32 groupID = sSpellMgr->GetSpellGroup(spellId);
+        if (6000 == groupID)
+        {
+            uint32 strongerSpell = 0;
+            uint32 counter = 0;
+            for (uint8 i = EFFECT_0; i < MAX_SPELL_EFFECTS; ++i)
+            {
+                // xinef: Skip Empty effects
+                if (!m_spellInfo->Effects[i].IsEffect())
+                    continue;
+                // xinef: if non-aura effect is preset - return false
+                if (!m_spellInfo->Effects[i].IsAura())
+                    break;
+                // xinef: aura is periodic - return false
+                if (m_spellInfo->Effects[i].Amplitude)
+                    break;
+                // xinef: exclude dummy auras
+                if (m_spellInfo->Effects[i].ApplyAuraName == SPELL_AURA_DUMMY)
+                    break;
+                counter += 1;
+            }
+            if (counter > 0)
+            {
+                uint8 rank = sSpellMgr->GetSpellRank(spellId);
+                if (rank)
+                {
+                    Aura *aura = m_caster->GetAuraOfRankedSpell(spellId);
+                    if (aura)
+                    {
+                        uint8 curRank = sSpellMgr->GetSpellRank(aura->GetSpellInfo()->Id);
+                        if (curRank >= rank)
+                        {
+                            strongerSpell = aura->GetSpellInfo()->Id;
+                        }
+                    }
+                }
+            }
+            if (strongerSpell)
+            {
+                return SPELL_FAILED_AURA_BOUNCED;
+            }
+        }
+    }
+    // end Custom
+
     if (Unit* target = m_targets.GetUnitTarget())
     {
         SpellCastResult castResult = m_spellInfo->CheckTarget(m_caster, target, false);
