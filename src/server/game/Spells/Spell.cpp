@@ -5857,7 +5857,7 @@ SpellCastResult Spell::CheckCast(bool strict)
     }
 
     // custom spell check stronger
-    if (m_caster->IsPlayer() && (!m_targets.GetUnitTarget() || m_targets.GetUnitTarget() == m_caster))
+    if (m_caster->IsPlayer())
     {
         uint32 spellId = m_spellInfo->Id;
         uint32 groupID = sSpellMgr->GetSpellGroup(spellId);
