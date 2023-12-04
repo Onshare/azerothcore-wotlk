@@ -249,7 +249,7 @@ public:
                 }
                 return false;
             case BAN_LONGER_EXISTS:
-                handler->PSendSysMessage("Unsuccessful! A longer ban is already present on this account!");
+                handler->PSendSysMessage("未成功! 该账户存在更长的禁令!");
                 break;
             default:
                 break;
