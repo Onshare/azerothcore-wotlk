@@ -6016,7 +6016,7 @@ SpellCastResult Spell::CheckCast(bool strict)
     }
 
     // custom spell check stronger
-    if (m_caster->IsPlayer())
+    if (m_caster->IsPlayer() || m_caster->IsNPCBot())
     {
         uint32 spellId = m_spellInfo->Id;
         uint32 groupID = sSpellMgr->GetSpellGroup(spellId);
