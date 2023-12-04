@@ -58,12 +58,12 @@ public:
         if (enable)
         {
             handler->GetSession()->GetPlayer()->SetCommandStatusOn(CHEAT_GOD);
-            handler->SendSysMessage("Godmode is ON. You won't take damage.");
+            handler->SendSysMessage("GM模式已经开启. 不会受到伤害.");
         }
         else
         {
             handler->GetSession()->GetPlayer()->SetCommandStatusOff(CHEAT_GOD);
-            handler->SendSysMessage("Godmode is OFF. You can take damage.");
+            handler->SendSysMessage("GM模式已经关闭. 可以承受伤害.");
         }
 
         return true;

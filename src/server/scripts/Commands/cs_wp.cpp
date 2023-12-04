@@ -478,7 +478,7 @@ public:
 
                 if (!result)
                 {
-                    handler->SendSysMessage("|cffff33ffERROR: You have selected an non existing waypoint script guid.|r");
+                    handler->SendSysMessage("|cffff33ffERROR: 您选择了一个不存在的航路点脚本 GUID.|r");
                     return true;
                 }
 
@@ -583,7 +583,7 @@ public:
 
         if (!target || target->GetEntry() != VISUAL_WAYPOINT)
         {
-            handler->SendSysMessage("|cffff33ffERROR: You must select a waypoint.|r");
+            handler->SendSysMessage("|cffff33ffERROR: 您必须选择一个航点.|r");
             return false;
         }
 
@@ -939,7 +939,7 @@ public:
                 }
             } while (result->NextRow());
 
-            handler->SendSysMessage("|cff00ff00Showing the current creature's path.|r");
+            handler->SendSysMessage("|cff00ff00显示当前生物的路径.|r");
             return true;
         }
 
@@ -1095,7 +1095,7 @@ public:
             return true;
         }
 
-        handler->PSendSysMessage("|cffff33ffDEBUG: wpshow - no valid command found|r");
+        handler->PSendSysMessage("|cffff33ffDEBUG: wpshow - 未找到有效命令|r");
         return true;
     }
 };
