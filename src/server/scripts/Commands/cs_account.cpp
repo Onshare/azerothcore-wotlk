@@ -472,7 +472,7 @@ public:
                 }
                 else
                 {
-                    handler->SendErrorMessage("No IP2Location information - account not locked");
+                    handler->SendErrorMessage("没有IP信息，账户未锁定");
                     return false;
                 }
             }
