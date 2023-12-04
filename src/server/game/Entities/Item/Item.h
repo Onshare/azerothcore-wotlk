@@ -158,11 +158,7 @@ enum SellResult
 };
 
 // -1 from client enchantment slot number
-<<<<<<< HEAD
-enum EnchantmentSlot : uint16
-=======
 enum EnchantmentSlot : uint8
->>>>>>> master
 {
     PERM_ENCHANTMENT_SLOT           = 0,
     TEMP_ENCHANTMENT_SLOT           = 1,
