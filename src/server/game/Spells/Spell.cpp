@@ -6058,6 +6058,13 @@ SpellCastResult Spell::CheckCast(bool strict)
             }
             if (strongerSpell)
             {
+                Player* player = nullptr;
+                if(m_caster->IsNPCBot() && !m_caster->ToCreature()->IsFreeBot()) {
+                     player = m_caster->ToCreature()->GetBotOwner();
+                }
+                if(player) {
+                    player->SendSystemMessage("已经有一个更强大的法术在发挥作用");
+                }
                 return SPELL_FAILED_AURA_BOUNCED;
             }
         }
