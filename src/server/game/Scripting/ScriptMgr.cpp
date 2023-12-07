@@ -17,6 +17,7 @@
 
 #include "ScriptMgr.h"
 #include "AllScriptsObjects.h"
+#include "LFGScripts.h"
 #include "InstanceScript.h"
 #include "ScriptObject.h"
 #include "ScriptSystem.h"
@@ -69,9 +70,13 @@ void ScriptMgr::Initialize()
 
     AddSC_SmartScripts();
 
+    // LFGScripts
+    lfg::AddSC_LFGScripts();
+
     //npcbot: load bot scripts here
     AddNpcBotScripts();
     //end npcbot
+
 
     ASSERT(_script_loader_callback,
         "Script loader callback wasn't registered!");
