@@ -178,7 +178,7 @@ Database.Reconnect.Attempts = 20
 #        Example:     "@prefix@\home\youruser\azerothcore\data"
 #        Default:     "."
 
-DataDir = "."
+DataDir = "~/data"
 
 #
 #    LogsDir
@@ -188,7 +188,7 @@ DataDir = "."
 #        Example:     "/home/youruser/azerothcore/logs"
 #        Default:     "" - (Log files will be stored in the current path)
 
-LogsDir = ""
+LogsDir = "../logs"
 
 #
 #    TempDir
@@ -644,7 +644,7 @@ Allow.IP.Based.Action.Logging = 0
 
 Appender.Console=1,4,0,"1 9 3 6 5 8"
 Appender.Server=2,5,0,Server.log,w
-# Appender.GM=2,5,15,gm_%s.log
+Appender.GM=2,5,15,gm_%s.log
 Appender.Errors=2,5,0,Errors.log
 # Appender.DB=3,5,0
 Appender.NpcBots=1,2,0
@@ -864,7 +864,7 @@ World.RealmAvailability = 1
 #                     16 - (FFA_PVP, Free for all PvP mode like arena PvP in all zones except rest
 #                          activated places and sanctuaries)
 
-GameType = 0
+GameType = 1
 
 #
 #    RealmZone
@@ -915,7 +915,7 @@ RealmZone = 1
 #                     7   - (Spanish Mexico)
 #                     8   - (Russian)
 
-DBC.Locale = 255
+DBC.Locale = 4
 
 #
 #    Expansion
@@ -1441,7 +1441,7 @@ AllowTickets = 1
 #        Description: Level requirement for characters to be able to write tickets.
 #        Default:     1
 
-LevelReq.Ticket = 1
+LevelReq.Ticket = 10
 
 #    DeletedCharacterTicketTrace
 #        Description: Keep trace of tickets opened by deleted characters
@@ -1615,7 +1615,7 @@ DisableWaterBreath = 4
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllFlightPaths = 0
+AllFlightPaths = 1
 
 #
 #    InstantFlightPaths
@@ -1973,7 +1973,7 @@ StartPlayerMoney = 0
 #        Default:     2000
 #                     2000 - (20 Silver)
 
-StartHeroicPlayerMoney = 2000
+StartHeroicPlayerMoney = 1320000
 
 #
 #     PlayerStart.String
@@ -2131,7 +2131,7 @@ Rate.MissChanceMultiplier.OnlyAffectsPlayer = 0
 #        Description: Level requirement for characters to be able to trade.
 #        Default:     1
 
-LevelReq.Trade = 1
+LevelReq.Trade = 10
 
 #
 #    NoResetTalentsCost
@@ -2160,7 +2160,7 @@ ToggleXP.Cost = 100000
 #        Range:       0-11
 #        Default:     2
 
-MaxPrimaryTradeSkill = 2
+MaxPrimaryTradeSkill = 4
 
 #
 #    SkillChance.Prospecting
@@ -2196,10 +2196,10 @@ Rate.Skill.Discovery = 1
 #                     1 - (SkillGain.Gathering)
 #                     1 - (SkillGain.Weapon)
 
-SkillGain.Crafting  = 1
-SkillGain.Defense   = 1
-SkillGain.Gathering = 1
-SkillGain.Weapon    = 1
+SkillGain.Crafting  = 4
+SkillGain.Defense   = 4
+SkillGain.Gathering = 4
+SkillGain.Weapon    = 4
 
 #
 #    SkillChance.Orange
@@ -2214,8 +2214,8 @@ SkillGain.Weapon    = 1
 
 SkillChance.Orange = 100
 SkillChance.Yellow = 75
-SkillChance.Green  = 25
-SkillChance.Grey   = 0
+SkillChance.Green  = 35
+SkillChance.Grey   = 5
 
 #
 #    SkillChance.MiningSteps
@@ -2269,7 +2269,7 @@ Stats.Limits.Crit  = 95.0
 #        Description: Reputation gain rate.
 #        Default:     1
 
-Rate.Reputation.Gain = 1
+Rate.Reputation.Gain = 4
 
 #
 #    Rate.Reputation.LowLevel.Kill
@@ -2317,11 +2317,11 @@ MaxGroupXPDistance = 74
 #                     1 - (Rate.XP.Explore)
 #                     1 - (Rate.XP.Pet)
 
-Rate.XP.Kill      = 1
-Rate.XP.Quest     = 1
-Rate.XP.Quest.DF  = 1
-Rate.XP.Explore   = 1
-Rate.XP.Pet       = 1
+Rate.XP.Kill      = 5
+Rate.XP.Quest     = 5
+Rate.XP.Quest.DF  = 5
+Rate.XP.Explore   = 5
+Rate.XP.Pet       = 5
 
 #
 #    Rate.XP.BattlegroundKill...
@@ -2385,7 +2385,7 @@ HonorPointsAfterDuel = 0
 #        Description: Honor gain rate.
 #        Default:     1
 
-Rate.Honor = 1
+Rate.Honor = 2
 
 #
 #    MaxArenaPoints
@@ -3105,7 +3105,7 @@ Instance.IgnoreLevel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Instance.IgnoreRaid = 0
+Instance.IgnoreRaid = 1
 
 #
 #    Instance.ResetTimeHour
@@ -3113,7 +3113,7 @@ Instance.IgnoreRaid = 0
 #        Range:       0-23
 #        Default:     4 - (04:00 AM)
 
-Instance.ResetTimeHour = 4
+Instance.ResetTimeHour = 23
 
 #
 #     Instance.ResetTimeRelativeTimestamp
@@ -3315,7 +3315,7 @@ Guild.BankEventLogRecordsCount = 25
 #        Range:       0-9
 #        Default:     9
 
-MinPetitionSigns = 9
+MinPetitionSigns = 4
 
 #
 #    Guild.CharterCost
@@ -3836,7 +3836,7 @@ MailDeliveryDelay = 3600
 #        Description: Level requirement for characters to be able to send and receive mails.
 #        Default:     1
 
-LevelReq.Mail = 1
+LevelReq.Mail = 10
 
 #
 ###################################################################################################
@@ -4076,7 +4076,7 @@ AllowTwoSide.Accounts = 1
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Calendar = 0
+AllowTwoSide.Interaction.Calendar = 1
 
 #
 #    AllowTwoSide.Interaction.Chat
@@ -4084,7 +4084,7 @@ AllowTwoSide.Interaction.Calendar = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Chat = 0
+AllowTwoSide.Interaction.Chat = 1
 
 #
 #    AllowTwoSide.Interaction.Emote
@@ -4092,7 +4092,7 @@ AllowTwoSide.Interaction.Chat = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Emote = 0
+AllowTwoSide.Interaction.Emote = 1
 
 #
 #    AllowTwoSide.Interaction.Channel
@@ -4100,7 +4100,7 @@ AllowTwoSide.Interaction.Emote = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Channel = 0
+AllowTwoSide.Interaction.Channel = 1
 
 #
 #    AllowTwoSide.Interaction.Group
@@ -4108,7 +4108,7 @@ AllowTwoSide.Interaction.Channel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Group = 0
+AllowTwoSide.Interaction.Group = 1
 
 #
 #    AllowTwoSide.Interaction.Guild
@@ -4116,7 +4116,7 @@ AllowTwoSide.Interaction.Group = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Guild = 0
+AllowTwoSide.Interaction.Guild = 1
 
 #
 #    AllowTwoSide.Interaction.Arena
@@ -4124,7 +4124,7 @@ AllowTwoSide.Interaction.Guild = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Arena = 0
+AllowTwoSide.Interaction.Arena = 1
 
 #
 #    AllowTwoSide.Interaction.Auction
@@ -4132,7 +4132,7 @@ AllowTwoSide.Interaction.Arena = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Auction = 0
+AllowTwoSide.Interaction.Auction = 1
 
 #
 #    AllowTwoSide.Interaction.Mail
@@ -4140,7 +4140,7 @@ AllowTwoSide.Interaction.Auction = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Mail = 0
+AllowTwoSide.Interaction.Mail = 1
 
 #
 #    AllowTwoSide.WhoList
@@ -4148,7 +4148,7 @@ AllowTwoSide.Interaction.Mail = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.WhoList = 0
+AllowTwoSide.WhoList = 1
 
 #
 #    AllowTwoSide.AddFriend
@@ -4156,7 +4156,7 @@ AllowTwoSide.WhoList = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.AddFriend = 0
+AllowTwoSide.AddFriend = 1
 
 #
 #    AllowTwoSide.Trade
@@ -4256,7 +4256,7 @@ AuctionHouse.SearchTimeout = 1000
 #        Description: Level requirement for characters to be able to use the auction house.
 #        Default:     1
 
-LevelReq.Auction = 1
+LevelReq.Auction = 10
 
 #
 #    Rate.Auction.Time
@@ -4317,8 +4317,8 @@ PlayerDump.DisallowOverwrite = 1
 #                    73827 - 25% buff Alliance
 #                    73828 - 30% buff Alliance
 
-ICC.Buff.Horde    = 73822
-ICC.Buff.Alliance = 73828
+ICC.Buff.Horde    = 73816
+ICC.Buff.Alliance = 73762
 
 #
 #     Minigob.Manabonk.Enable
@@ -4404,14 +4404,14 @@ NpcBot.Enable = 1
 #        Default:     1
 #        Max:         39
 
-NpcBot.MaxBots = 1
+NpcBot.MaxBots = 4
 
 #
 #    NpcBot.MaxBotsPerClass
 #        Description: Maximum bots of each class allowed for players.
 #        Default:     0 - no limit
 
-NpcBot.MaxBotsPerClass = 0
+NpcBot.MaxBotsPerClass = 1
 
 #
 #    NpcBot.Botgiver.FilterRaces
@@ -4467,12 +4467,12 @@ NpcBot.XpReduction.StartingNumber = 2
 #                     64 - Cross
 #                     128 - Skull
 
-NpcBot.HealTargetIconMask = 0
-NpcBot.TankTargetIconMask = 0
-NpcBot.OffTankTargetIconMask = 0
-NpcBot.DPSTargetIconMask = 0
-NpcBot.RangedDPSTargetIconMask = 0
-NpcBot.NoDPSTargetIconMask = 0
+NpcBot.HealTargetIconMask = 16
+NpcBot.TankTargetIconMask = 128
+NpcBot.OffTankTargetIconMask = 64
+NpcBot.DPSTargetIconMask = 128
+NpcBot.RangedDPSTargetIconMask = 128
+NpcBot.NoDPSTargetIconMask = 16
 
 #
 #    NpcBot.Mult.Damage.Physical
@@ -4557,9 +4557,9 @@ NpcBot.Mult.Damage.Levels = 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 #                     1 - (NpcBot.Enable.DungeonFinder)
 
 NpcBot.Enable.Dungeon       = 1
-NpcBot.Enable.Raid          = 0
-NpcBot.Enable.BG            = 0
-NpcBot.Enable.Arena         = 0
+NpcBot.Enable.Raid          = 1
+NpcBot.Enable.BG            = 1
+NpcBot.Enable.Arena         = 1
 NpcBot.Enable.DungeonFinder = 1
 
 #
@@ -4727,14 +4727,14 @@ NpcBot.Classes.Mage.Enable              = 1
 NpcBot.Classes.Warlock.Enable           = 1
 NpcBot.Classes.Druid.Enable             = 1
 NpcBot.Classes.Blademaster.Enable       = 0
-NpcBot.Classes.ObsidianDestroyer.Enable = 1
-NpcBot.Classes.Archmage.Enable          = 1
-NpcBot.Classes.Dreadlord.Enable         = 1
-NpcBot.Classes.SpellBreaker.Enable      = 1
-NpcBot.Classes.DarkRanger.Enable        = 1
-NpcBot.Classes.Necromancer.Enable       = 1
-NpcBot.Classes.SeaWitch.Enable          = 1
-NpcBot.Classes.CryptLord.Enable         = 1
+NpcBot.Classes.ObsidianDestroyer.Enable = 0
+NpcBot.Classes.Archmage.Enable          = 0
+NpcBot.Classes.Dreadlord.Enable         = 0
+NpcBot.Classes.SpellBreaker.Enable      = 0
+NpcBot.Classes.DarkRanger.Enable        = 0
+NpcBot.Classes.Necromancer.Enable       = 0
+NpcBot.Classes.SeaWitch.Enable          = 0
+NpcBot.Classes.CryptLord.Enable         = 0
 
 #
 #    NpcBot.Stats.Limits.Enable
@@ -4777,7 +4777,7 @@ NpcBot.InfoPacketsLimit = -1
 #        Default:     0 - (Disabled)
 #                     604800 - (7 Days)
 
-NpcBot.OwnershipExpireTime = 0
+NpcBot.OwnershipExpireTime = 115200
 
 #
 #    NpcBot.EnrageOnDismiss
@@ -4785,7 +4785,7 @@ NpcBot.OwnershipExpireTime = 0
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled)
 
-NpcBot.EnrageOnDismiss = 1
+NpcBot.EnrageOnDismiss = 0
  
 #
 #    NpcBot.WanderingBots.Continents.Count
@@ -4823,7 +4823,7 @@ NpcBot.WanderingBots.Continents.Maps = 0,1,530,571
 #        Default:     0 - (Disabled)
 #                     1 - (Enable)
 
-NpcBot.WanderingBots.BG.Enable = 0
+NpcBot.WanderingBots.BG.Enable = 1
 
 #
 #    NpcBot.WanderingBots.BG.CapLevel
@@ -4858,7 +4858,7 @@ NpcBot.WanderingBots.BG.TargetTeamPlayersCount.IC = 0
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled)
 
-NpcBot.HK.Enable = 1
+NpcBot.HK.Enable = 0
 
 #
 #    NpcBot.HK.Message.Enable
