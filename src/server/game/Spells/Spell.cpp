@@ -5887,13 +5887,13 @@ SpellCastResult Spell::CheckCast(bool strict)
                 if (rank)
                 {
                     Unit* unit ;
-                    if(!m_targets->GetUnitTarget()) {
+                    if(!m_targets.GetUnitTarget()) {
                         unit = m_caster;
                     } else {
                         unit = m_targets.GetUnitTarget();
                     }
                     if(unit) {
-                        Aura *aura = m_caster->GetAuraOfRankedSpell(spellId);
+                        Aura *aura = unit->GetAuraOfRankedSpell(spellId);
                         if (aura)
                         {
                             uint8 curRank = sSpellMgr->GetSpellRank(aura->GetSpellInfo()->Id);
