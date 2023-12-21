@@ -6045,15 +6045,24 @@ SpellCastResult Spell::CheckCast(bool strict)
                 uint8 rank = sSpellMgr->GetSpellRank(spellId);
                 if (rank)
                 {
-                    Aura *aura = m_caster->GetAuraOfRankedSpell(spellId);
-                    if (aura)
-                    {
-                        uint8 curRank = sSpellMgr->GetSpellRank(aura->GetSpellInfo()->Id);
-                        if (curRank >= rank)
+                    Unit* unit ;
+                    if(!m_targets.GetUnitTarget()) {
+                        unit = m_caster;
+                    } else {
+                        unit = m_targets.GetUnitTarget();
+                    }
+                    if(unit) {
+                        Aura *aura = unit->GetAuraOfRankedSpell(spellId);
+                        if (aura)
                         {
-                            strongerSpell = aura->GetSpellInfo()->Id;
+                            uint8 curRank = sSpellMgr->GetSpellRank(aura->GetSpellInfo()->Id);
+                            if (curRank >= rank)
+                            {
+                              strongerSpell = aura->GetSpellInfo()->Id;
+                            }
                         }
                     }
+                    
                 }
             }
             if (strongerSpell)
