@@ -2788,15 +2788,12 @@ template <>
 void Map::AddToActive(Creature* c)
 {
     AddToActiveHelper(c);
-<<<<<<< HEAD
 
     // also not allow unloading spawn grid to prevent creating creature clone at load
     if (!c->IsPet() && c->GetSpawnId() && c->IsNPCBot())
     {
         EnsureGridLoaded(Cell(Acore::ComputeCellCoord(c->GetPositionX(), c->GetPositionY())));
     }
-=======
->>>>>>> npcbot-work
 }
 
 template<>
