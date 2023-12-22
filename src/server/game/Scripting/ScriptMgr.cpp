@@ -70,13 +70,12 @@ void ScriptMgr::Initialize()
 
     AddSC_SmartScripts();
 
-    // LFGScripts
-    lfg::AddSC_LFGScripts();
-
     //npcbot: load bot scripts here
     AddNpcBotScripts();
     //end npcbot
 
+    // LFGScripts
+    lfg::AddSC_LFGScripts();
 
     ASSERT(_script_loader_callback,
         "Script loader callback wasn't registered!");

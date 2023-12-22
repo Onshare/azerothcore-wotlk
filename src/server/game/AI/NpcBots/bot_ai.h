@@ -24,6 +24,7 @@ enum CombatRating : uint8;
 enum EnchantmentSlot : uint8;
 enum GossipOptionIcon : uint8;
 enum MeleeHitOutcome : uint8;
+enum WeaponAttackType : uint8;
 
 struct CleanDamage;
 struct CalcDamageInfo;

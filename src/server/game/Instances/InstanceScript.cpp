@@ -646,14 +646,14 @@ void InstanceScript::DoRemoveAurasDueToSpellOnPlayers(uint32 spell)
         player->RemoveAurasDueToSpell(spell);
         if (Pet* pet = player->GetPet())
             pet->RemoveAurasDueToSpell(spell);
-        //npcbot: include bots
-        if (player->HaveBot())
-        {
-            for (auto const& bitr : *player->GetBotMgr()->GetBotMap())
-                if (bitr.second && bitr.second->IsInWorld())
-                     DoRemoveAurasDueToSpellOnNPCBot(bitr.second, spell);
-        }
-        //end npcbot
+                //npcbot: include bots
+                if (player->HaveBot())
+                {
+                    for (auto const& bitr : *player->GetBotMgr()->GetBotMap())
+                        if (bitr.second && bitr.second->IsInWorld())
+                            DoRemoveAurasDueToSpellOnNPCBot(bitr.second, spell);
+                }
+                //end npcbot
     });
 }
 
@@ -670,7 +670,7 @@ void InstanceScript::DoCastSpellOnPlayers(uint32 spell)
                 if (bitr.second && bitr.second->IsInWorld())
                     DoCastSpellOnNPCBot(bitr.second, spell);
         }
-         //end npcbot
+        //end npcbot
     });
 }
 
