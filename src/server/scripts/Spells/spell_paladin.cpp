@@ -23,10 +23,10 @@
 
 #include "Group.h"
 #include "Player.h"
-#include "ScriptMgr.h"
 #include "SpellAuraEffects.h"
 #include "SpellMgr.h"
 #include "SpellScript.h"
+#include "SpellScriptLoader.h"
 #include "UnitAI.h"
 
 //npcbot
