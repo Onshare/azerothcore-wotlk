@@ -1574,7 +1574,7 @@ bool SpellInfo::IsStrongerAuraActive(Unit const* caster, Unit const* target) con
 
     // xinef: check spell group
     uint32 groupId = sSpellMgr->GetSpellGroup(Id);
-    if (!groupId)
+    if (!groupId || groupId == 6000)
         return false;
 
     SpellGroupSpecialFlags sFlag = sSpellMgr->GetSpellGroupSpecialFlags(Id);
