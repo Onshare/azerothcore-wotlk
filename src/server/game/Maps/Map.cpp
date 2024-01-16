@@ -2789,11 +2789,11 @@ void Map::AddToActive(Creature* c)
 {
     AddToActiveHelper(c);
 
-    // also not allow unloading spawn grid to prevent creating creature clone at load
-    if (!c->IsPet() && c->GetSpawnId() && c->IsNPCBot())
-    {
-        EnsureGridLoaded(Cell(Acore::ComputeCellCoord(c->GetPositionX(), c->GetPositionY())));
-    }
+    // // also not allow unloading spawn grid to prevent creating creature clone at load
+    // if (!c->IsPet() && c->GetSpawnId() && c->IsNPCBot())
+    // {
+    //     EnsureGridLoaded(Cell(Acore::ComputeCellCoord(c->GetPositionX(), c->GetPositionY())));
+    // }
 }
 
 template<>
@@ -2819,11 +2819,11 @@ void Map::RemoveFromActive(Creature* c)
 {
     RemoveFromActiveHelper(c);
 
-    // also allow unloading spawn grid
-    if (!c->IsPet() && c->GetSpawnId() && c->IsNPCBot())
-    {
-        EnsureGridLoaded(Cell(Acore::ComputeCellCoord(c->GetPositionX(), c->GetPositionY())));
-    }
+    // // also allow unloading spawn grid
+    // if (!c->IsPet() && c->GetSpawnId() && c->IsNPCBot())
+    // {
+    //     EnsureGridLoaded(Cell(Acore::ComputeCellCoord(c->GetPositionX(), c->GetPositionY())));
+    // }
 }
 
 template<>
