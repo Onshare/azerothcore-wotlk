@@ -152,6 +152,16 @@ public:
             summons.DespawnAll();
         }
 
+        bool IsInRoom()
+        {
+            if (me->GetPositionX() > 3353 || me->GetPositionX() < 3231 || me->GetPositionY() > -3086 || me->GetPositionY() < -3210 || me->GetPositionZ() > 307 || me->GetPositionZ() < 295)
+            {
+                EnterEvadeMode();
+                return false;
+            }
+            return true;
+        }
+
         bool SelectPlayerInRoom()
         {
             if (me->IsInCombat())
@@ -175,6 +185,9 @@ public:
 
         void UpdateAI(uint32 diff) override
         {
+            if (!IsInRoom())
+                return;
+
             if (!UpdateVictimWithGaze() && !SelectPlayerInRoom())
                 return;
 
