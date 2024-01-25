@@ -59,7 +59,7 @@ enum blySpells
     SPELL_REVENGE              = 12170
 };
 
-#define GOSSIP_BLY                  "That's it!  I'm tired of helping you out.  It's time we settled things on the battlefield!"
+#define GOSSIP_BLY                  "就是这样！我厌倦了帮你。是时候解决问题了!"
 
 class npc_sergeant_bly : public CreatureScript
 {
@@ -383,7 +383,7 @@ enum weegliSays
     SAY_WEEGLI_OUT_OF_HERE      = 2
 };
 
-#define GOSSIP_WEEGLI               "Will you blow up that door now?"
+#define GOSSIP_WEEGLI               "你现在可以炸开那扇门了吗？"
 
 class npc_weegli_blastfuse : public CreatureScript
 {
