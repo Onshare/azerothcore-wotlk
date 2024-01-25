@@ -668,11 +668,11 @@ namespace lfg
                                 //disabled in config
                                 if (!BotMgr::IsNpcBotDungeonFinderEnabled())
                                 {
-                                    (ChatHandler(plrg->GetSession())).SendSysMessage("Using npcbots in Dungeon Finder is restricted. Contact your administration.");
+                                    (ChatHandler(plrg->GetSession())).SendSysMessage("机器人无法在地下城查找器中使用");
 
                                     if (plrg->GetGUID() != grp->GetLeaderGUID())
                                         if (Player* leader = ObjectAccessor::FindPlayer(grp->GetLeaderGUID()))
-                                            (ChatHandler(leader->GetSession())).PSendSysMessage("There is a npcbot in your group (owner: %s). Using npcbots in Dungeon Finder is restricted. Contact your administration.",
+                                            (ChatHandler(leader->GetSession())).PSendSysMessage("队伍中存在机器人，无法在地下城查找器中使用 (拥有者: %s).",
                                                 plrg->GetName().c_str());
 
                                     joinData.result = LFG_JOIN_PARTY_NOT_MEET_REQS;
@@ -1800,7 +1800,7 @@ namespace lfg
                     {
                         //only one player in group
                         ChatHandler ch(player->GetSession());
-                        ch.SendSysMessage("You are the only player in your group, loot method set to Free For All");
+                        ch.SendSysMessage("您的队伍只有一个玩家，分配方式设置为自由分配。");
                         grp->SetLootMethod(FREE_FOR_ALL);
                     }
                 }
