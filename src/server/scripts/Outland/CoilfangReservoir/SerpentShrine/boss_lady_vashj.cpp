@@ -174,7 +174,7 @@ struct boss_lady_vashj : public BossAI
         {
             return;
         }
-
+        me->AddUnitState(UNIT_STATE_ROOT);
         me->SetFacingTo(me->GetHomePosition().GetOrientation());
         instance->SetData(DATA_ACTIVATE_SHIELD, 0);
         scheduler.CancelAll();
@@ -204,6 +204,7 @@ struct boss_lady_vashj : public BossAI
             if (!me->HasAura(SPELL_MAGIC_BARRIER))
             {
                 Talk(SAY_PHASE3);
+                me->ClearUnitState(UNIT_STATE_ROOT);
                 me->SetReactState(REACT_AGGRESSIVE);
                 me->GetMotionMaster()->MoveChase(me->GetVictim());
                 scheduler.CancelAll();

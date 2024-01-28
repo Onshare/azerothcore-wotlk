@@ -15,12 +15,6 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * Scripts for spells with SPELLFAMILY_PALADIN and SPELLFAMILY_GENERIC spells used by paladin players.
- * Ordered alphabetically using scriptname.
- * Scriptnames of files in this file should be prefixed with "spell_pal_".
- */
-
 #include "Group.h"
 #include "Player.h"
 #include "SpellAuraEffects.h"
@@ -28,6 +22,11 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "UnitAI.h"
+/*
+ * Scripts for spells with SPELLFAMILY_PALADIN and SPELLFAMILY_GENERIC spells used by paladin players.
+ * Ordered alphabetically using scriptname.
+ * Scriptnames of files in this file should be prefixed with "spell_pal_".
+ */
 
 //npcbot
 #include "Creature.h"
